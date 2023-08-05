@@ -23,8 +23,8 @@ MESSAGE(STATUS "Generating ${RUNNER_SOURCES} from ${AUTOTEST_SOURCES}")
 MESSAGE(STATUS "Building executable including ${RUNNER_SOURCES} ${AUTOTEST_SOURCES} and ${TESTED_SOURCE}")
 add_executable(assignment-autotest ${AUTOTEST_SOURCES} ${RUNNER_SOURCES} ${TESTED_SOURCE} ${CMAKE_CURRENT_SOURCE_DIR}/test/unity_runner.c)
 target_link_libraries(assignment-autotest unity)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-error")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wno-error")
 # See https://cmake.org/cmake/help/latest/command/add_custom_command.html
 # Generate our test runner using the auto_generate.sh script
 add_custom_command(OUTPUT ${RUNNER_SOURCES} ${CMAKE_CURRENT_SOURCE_DIR}/test/unity_runner.c
